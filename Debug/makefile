@@ -13,6 +13,7 @@ ORDERED_OBJS += \
 "./main.obj" \
 "./HAL/hal_clk.obj" \
 "./HAL/hal_spi.obj" \
+"./HWO/max7219.obj" \
 "../lnk_msp430fr6989.cmd" \
 $(GEN_CMDS__FLAG) \
 -llibmpu_init.a \
@@ -28,8 +29,10 @@ RMDIR := RMDIR /S/Q
 -include sources.mk
 -include subdir_vars.mk
 -include HAL/subdir_vars.mk
+-include HWO/subdir_vars.mk
 -include subdir_rules.mk
 -include HAL/subdir_rules.mk
+-include HWO/subdir_rules.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
@@ -160,8 +163,8 @@ MAX7219.hex: $(EXE_OUTPUTS)
 # Other Targets
 clean:
 	-$(RM) $(BIN_OUTPUTS__QUOTED)$(EXE_OUTPUTS__QUOTED)
-	-$(RM) "main.obj" "HAL\hal_clk.obj" "HAL\hal_spi.obj" 
-	-$(RM) "main.d" "HAL\hal_clk.d" "HAL\hal_spi.d" 
+	-$(RM) "main.obj" "HAL\hal_clk.obj" "HAL\hal_spi.obj" "HWO\max7219.obj" 
+	-$(RM) "main.d" "HAL\hal_clk.d" "HAL\hal_spi.d" "HWO\max7219.d" 
 	-@echo 'Finished clean'
 	-@echo ' '
 
