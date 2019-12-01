@@ -1,7 +1,7 @@
 ******************************************************************************
                   MSP430 Linker PC v18.12.2                    
 ******************************************************************************
->> Linked Sat Nov 30 13:15:08 2019
+>> Linked Sun Dec  1 15:30:52 2019
 
 OUTPUT FILE NAME:   <MAX7219.out>
 ENTRY POINT SYMBOL: "_c_int00_noinit_noargs_mpu"  address: 00004400
@@ -79,7 +79,7 @@ MEMORY CONFIGURATION
   INT53                 0000fffa   00000002  00000002  00000000  RWIX
   INT54                 0000fffc   00000002  00000002  00000000  RWIX
   RESET                 0000fffe   00000002  00000002  00000000  RWIX
-  FRAM2                 00010000   00014000  00000168  00013e98  RWIX
+  FRAM2                 00010000   00014000  000001f6  00013e0a  RWIX
 
 
 SECTION ALLOCATION MAP
@@ -230,30 +230,32 @@ SYSNMI     0    0000fffc    00000002
 .reset     0    0000fffe    00000002     
                   0000fffe    00000002     rts430x_lc_rd_eabi.lib : boot.c.obj (.reset)
 
-.text      0    00010000    00000168     
+.text      0    00010000    000001f6     
                   00010000    000000a6     hal_spi.obj (.text:hal_spi_init)
-                  000100a6    0000002e     main.obj (.text:main)
-                  000100d4    0000002c     MSPMPU_INIT_LIB_CCS_msp430_large_code_restricted_data.lib : mpu_init.o (.text:__mpu_init)
-                  00010100    00000022     main.obj (.text:_write_reg)
-                  00010122    00000016     main.obj (.text:chip_select_init)
-                  00010138    00000014     main.obj (.text:chip_select)
-                  0001014c    00000012     hal_spi.obj (.text:hal_spi_tx_byte)
-                  0001015e    00000006     rts430x_lc_rd_eabi.lib : exit.c.obj (.text:abort)
-                  00010164    00000004                            : pre_init.c.obj (.text:_system_pre_init)
+                  000100a6    00000082     main.obj (.text:main)
+                  00010128    0000003a     hal_clk.obj (.text:hal_clk_config_ACLK)
+                  00010162    0000002c     MSPMPU_INIT_LIB_CCS_msp430_large_code_restricted_data.lib : mpu_init.o (.text:__mpu_init)
+                  0001018e    00000022     main.obj (.text:_write_reg)
+                  000101b0    00000016     main.obj (.text:chip_select_init)
+                  000101c6    00000014     main.obj (.text:chip_select)
+                  000101da    00000012     hal_spi.obj (.text:hal_spi_tx_byte)
+                  000101ec    00000006     rts430x_lc_rd_eabi.lib : exit.c.obj (.text:abort)
+                  000101f2    00000004                            : pre_init.c.obj (.text:_system_pre_init)
 
 MODULE SUMMARY
 
        Module             code   ro data   rw data
        ------             ----   -------   -------
     .\
-       main.obj           122    0         0      
+       main.obj           206    0         0      
     +--+------------------+------+---------+---------+
-       Total:             122    0         0      
+       Total:             206    0         0      
                                                   
     .\HAL\
        hal_spi.obj        184    0         0      
+       hal_clk.obj        58     0         0      
     +--+------------------+------+---------+---------+
-       Total:             184    0         0      
+       Total:             242    0         0      
                                                   
     C:\ti\ccs910\ccs\ccs_base\msp430\lib\FR59xx\MSPMPU_INIT_LIB_CCS_msp430_large_code_restricted_data.lib
        mpu_init.o         44     0         0      
@@ -298,7 +300,7 @@ MODULE SUMMARY
                                                   
        Stack:             0      0         160    
     +--+------------------+------+---------+---------+
-       Grand Total:       392    58        160    
+       Grand Total:       534    58        160    
 
 
 GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
@@ -562,7 +564,7 @@ address   name
 000009ce  AESAXIN_L                 
 000004be  BCD2BIN                   
 000004bc  BIN2BCD                   
-0001015e  C$$EXIT                   
+000101ec  C$$EXIT                   
 0000043e  CAPTIO0CTL                
 0000043f  CAPTIO0CTL_H              
 0000043e  CAPTIO0CTL_L              
@@ -1718,21 +1720,22 @@ ffffffff  __TI_prof_data_size
 ffffffff  __TI_prof_data_start      
 ffffffff  __c_args__                
 00000001  __mpu_enable              
-000100d4  __mpu_init                
+00010162  __mpu_init                
 00004400  _c_int00_noinit_noargs_mpu
 0000fffe  _reset_vector             
 00002360  _stack                    
-00010164  _system_pre_init          
-00010100  _write_reg                
-0001015e  abort                     
-00010138  chip_select               
-00010122  chip_select_init          
+000101f2  _system_pre_init          
+0001018e  _write_reg                
+000101ec  abort                     
+000101c6  chip_select               
+000101b0  chip_select_init          
 00004400  fram_ipe_end              
 00004400  fram_ipe_start            
 00004400  fram_rw_start             
 00004400  fram_rx_start             
+00010128  hal_clk_config_ACLK       
 00010000  hal_spi_init              
-0001014c  hal_spi_tx_byte           
+000101da  hal_spi_tx_byte           
 000100a6  main                      
 0000a501  mpu_ctl0_value            
 00001513  mpu_sam_value             
@@ -3165,17 +3168,18 @@ address   name
 0000fffe  _reset_vector             
 00010000  hal_spi_init              
 000100a6  main                      
-000100d4  __mpu_init                
-00010100  _write_reg                
-00010122  chip_select_init          
-00010138  chip_select               
-0001014c  hal_spi_tx_byte           
-0001015e  C$$EXIT                   
-0001015e  abort                     
-00010164  _system_pre_init          
+00010128  hal_clk_config_ACLK       
+00010162  __mpu_init                
+0001018e  _write_reg                
+000101b0  chip_select_init          
+000101c6  chip_select               
+000101da  hal_spi_tx_byte           
+000101ec  C$$EXIT                   
+000101ec  abort                     
+000101f2  _system_pre_init          
 ffffffff  __TI_pprof_out_hndl       
 ffffffff  __TI_prof_data_size       
 ffffffff  __TI_prof_data_start      
 ffffffff  __c_args__                
 
-[1433 symbols]
+[1434 symbols]

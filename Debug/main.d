@@ -17,6 +17,7 @@ main.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-msp430_18.12.2.LTS/include/mach
 main.obj: C:/ti/ccs910/ccs/tools/compiler/ti-cgt-msp430_18.12.2.LTS/include/sys/_stdint.h
 main.obj: ../HAL/hal_spi.h
 main.obj: ../HAL/msp430fr6989.h
+main.obj: ../HAL/hal_clk.h
 main.obj: ../HWO/max7219.h
 
 ../main.c: 
@@ -36,4 +37,5 @@ C:/ti/ccs910/ccs/tools/compiler/ti-cgt-msp430_18.12.2.LTS/include/machine/_stdin
 C:/ti/ccs910/ccs/tools/compiler/ti-cgt-msp430_18.12.2.LTS/include/sys/_stdint.h: 
 ../HAL/hal_spi.h: 
 ../HAL/msp430fr6989.h: 
+../HAL/hal_clk.h: 
 ../HWO/max7219.h: 
