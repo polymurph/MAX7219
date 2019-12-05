@@ -1,7 +1,7 @@
 ******************************************************************************
                   MSP430 Linker PC v18.12.2                    
 ******************************************************************************
->> Linked Thu Dec  5 16:55:40 2019
+>> Linked Thu Dec  5 17:05:58 2019
 
 OUTPUT FILE NAME:   <MAX7219.out>
 ENTRY POINT SYMBOL: "_c_int00_noargs_mpu"  address: 00004400
@@ -79,7 +79,7 @@ MEMORY CONFIGURATION
   INT53                 0000fffa   00000002  00000002  00000000  RWIX
   INT54                 0000fffc   00000002  00000002  00000000  RWIX
   RESET                 0000fffe   00000002  00000002  00000000  RWIX
-  FRAM2                 00010000   00014000  0000063e  000139c2  RWIX
+  FRAM2                 00010000   00014000  0000065e  000139a2  RWIX
 
 
 SECTION ALLOCATION MAP
@@ -236,45 +236,46 @@ SYSNMI     0    0000fffc    00000002
 .reset     0    0000fffe    00000002     
                   0000fffe    00000002     rts430x_lc_rd_eabi.lib : boot.c.obj (.reset)
 
-.text      0    00010000    0000063e     
-                  00010000    000001bc     main.obj (.text:main)
-                  000101bc    0000010c     main.obj (.text:_write_char)
-                  000102c8    000000a6     hal_spi.obj (.text:hal_spi_init)
-                  0001036e    00000076     rts430x_lc_rd_eabi.lib : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
-                  000103e4    0000006e     max7219.obj (.text:max7219_set_all_digits)
-                  00010452    00000054     rts430x_lc_rd_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit_hold_wdt:__TI_auto_init_nobinit_nopinit_hold_wdt)
-                  000104a6    0000003a     hal_clk.obj (.text:hal_clk_config_ACLK)
-                  000104e0    0000002c     MSPMPU_INIT_LIB_CCS_msp430_large_code_restricted_data.lib : mpu_init.o (.text:__mpu_init)
-                  0001050c    00000026     max7219.obj (.text:_write_reg)
-                  00010532    00000022     main.obj (.text:_write_reg)
-                  00010554    00000016     main.obj (.text:chip_select_init)
-                  0001056a    00000014     main.obj (.text:chip_select)
-                  0001057e    00000014     rts430x_lc_rd_eabi.lib : memcpy.c.obj (.text:memcpy)
-                  00010592    00000012                            : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
-                  000105a4    00000012     hal_spi.obj (.text:hal_spi_tx_byte)
-                  000105b6    0000000c     max7219.obj (.text:max7219_set_digit_2)
-                  000105c2    0000000c     max7219.obj (.text:max7219_set_digit_4)
-                  000105ce    0000000c     max7219.obj (.text:max7219_set_digit_5)
-                  000105da    0000000c     max7219.obj (.text:max7219_set_digit_6)
-                  000105e6    0000000c     max7219.obj (.text:max7219_set_intensity)
-                  000105f2    0000000c     max7219.obj (.text:max7219_shutdown)
-                  000105fe    0000000c     max7219.obj (.text:max7219_test_display)
-                  0001060a    0000000a     max7219.obj (.text:max7219_set_digit_0)
-                  00010614    0000000a     max7219.obj (.text:max7219_set_digit_1)
-                  0001061e    0000000a     max7219.obj (.text:max7219_set_digit_3)
-                  00010628    0000000a     max7219.obj (.text:max7219_set_digit_7)
-                  00010632    00000006     rts430x_lc_rd_eabi.lib : exit.c.obj (.text:abort)
-                  00010638    00000004                            : pre_init.c.obj (.text:_system_pre_init)
-                  0001063c    00000002                            : startup.c.obj (.text:_system_post_cinit)
+.text      0    00010000    0000065e     
+                  00010000    0000017c     main.obj (.text:main)
+                  0001017c    0000010c     main.obj (.text:_write_char)
+                  00010288    000000a6     hal_spi.obj (.text:hal_spi_init)
+                  0001032e    00000076     rts430x_lc_rd_eabi.lib : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  000103a4    0000006e     max7219.obj (.text:max7219_set_all_digits)
+                  00010412    0000005e     max7219.obj (.text:max7219_erase_all_digits)
+                  00010470    00000054     rts430x_lc_rd_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit_hold_wdt:__TI_auto_init_nobinit_nopinit_hold_wdt)
+                  000104c4    0000003a     hal_clk.obj (.text:hal_clk_config_ACLK)
+                  000104fe    0000002c     MSPMPU_INIT_LIB_CCS_msp430_large_code_restricted_data.lib : mpu_init.o (.text:__mpu_init)
+                  0001052a    00000026     max7219.obj (.text:_write_reg)
+                  00010550    00000022     main.obj (.text:_write_reg)
+                  00010572    00000016     main.obj (.text:chip_select_init)
+                  00010588    00000014     main.obj (.text:chip_select)
+                  0001059c    00000014     rts430x_lc_rd_eabi.lib : memcpy.c.obj (.text:memcpy)
+                  000105b0    00000012                            : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
+                  000105c2    00000012     hal_spi.obj (.text:hal_spi_tx_byte)
+                  000105d4    0000000e     max7219.obj (.text:max7219_shutdown)
+                  000105e2    0000000c     max7219.obj (.text:max7219_set_digit_2)
+                  000105ee    0000000c     max7219.obj (.text:max7219_set_digit_4)
+                  000105fa    0000000c     max7219.obj (.text:max7219_set_digit_5)
+                  00010606    0000000c     max7219.obj (.text:max7219_set_digit_6)
+                  00010612    0000000c     max7219.obj (.text:max7219_set_intensity)
+                  0001061e    0000000c     max7219.obj (.text:max7219_test_display)
+                  0001062a    0000000a     max7219.obj (.text:max7219_set_digit_0)
+                  00010634    0000000a     max7219.obj (.text:max7219_set_digit_1)
+                  0001063e    0000000a     max7219.obj (.text:max7219_set_digit_3)
+                  00010648    0000000a     max7219.obj (.text:max7219_set_digit_7)
+                  00010652    00000006     rts430x_lc_rd_eabi.lib : exit.c.obj (.text:abort)
+                  00010658    00000004                            : pre_init.c.obj (.text:_system_pre_init)
+                  0001065c    00000002                            : startup.c.obj (.text:_system_post_cinit)
 
 MODULE SUMMARY
 
        Module                       code   ro data   rw data
        ------                       ----   -------   -------
     .\
-       main.obj                     788    0         224    
+       main.obj                     724    0         224    
     +--+----------------------------+------+---------+---------+
-       Total:                       788    0         224    
+       Total:                       724    0         224    
                                                             
     .\HAL\
        hal_spi.obj                  184    0         0      
@@ -283,9 +284,9 @@ MODULE SUMMARY
        Total:                       242    0         0      
                                                             
     .\HWO\
-       max7219.obj                  272    0         0      
+       max7219.obj                  368    0         0      
     +--+----------------------------+------+---------+---------+
-       Total:                       272    0         0      
+       Total:                       368    0         0      
                                                             
     C:\ti\ccs910\ccs\ccs_base\msp430\lib\FR59xx\MSPMPU_INIT_LIB_CCS_msp430_large_code_restricted_data.lib
        mpu_init.o                   44     0         0      
@@ -336,7 +337,7 @@ MODULE SUMMARY
        Stack:                       0      0         160    
        Linker Generated:            0      212       0      
     +--+----------------------------+------+---------+---------+
-       Grand Total:                 1638   270       384    
+       Grand Total:                 1670   270       384    
 
 
 LINKER GENERATED COPY TABLES
@@ -613,7 +614,7 @@ address   name
 000009ce  AESAXIN_L                              
 000004be  BCD2BIN                                
 000004bc  BIN2BCD                                
-00010632  C$$EXIT                                
+00010652  C$$EXIT                                
 0000043e  CAPTIO0CTL                             
 0000043f  CAPTIO0CTL_H                           
 0000043e  CAPTIO0CTL_L                           
@@ -1740,9 +1741,9 @@ address   name
 000044ec  __TI_Handler_Table_Base                
 000044f4  __TI_Handler_Table_Limit               
 00004420  __TI_ISR_TRAP                          
-00010452  __TI_auto_init_nobinit_nopinit_hold_wdt
-0001036e  __TI_decompress_lzss                   
-00010592  __TI_decompress_none                   
+00010470  __TI_auto_init_nobinit_nopinit_hold_wdt
+0001032e  __TI_decompress_lzss                   
+000105b0  __TI_decompress_none                   
 0000ffc6  __TI_int27                             
 0000ffc8  __TI_int28                             
 0000ffca  __TI_int29                             
@@ -1776,39 +1777,40 @@ ffffffff  __TI_prof_data_size
 ffffffff  __TI_prof_data_start                   
 ffffffff  __c_args__                             
 00000001  __mpu_enable                           
-000104e0  __mpu_init                             
+000104fe  __mpu_init                             
 00004400  _c_int00_noargs_mpu                    
 0000fffe  _reset_vector                          
 00002360  _stack                                 
-0001063c  _system_post_cinit                     
-00010638  _system_pre_init                       
-000101bc  _write_char                            
-00010532  _write_reg                             
-00010632  abort                                  
+0001065c  _system_post_cinit                     
+00010658  _system_pre_init                       
+0001017c  _write_char                            
+00010550  _write_reg                             
+00010652  abort                                  
 00001c00  character_lut                          
-0001056a  chip_select                            
-00010554  chip_select_init                       
+00010588  chip_select                            
+00010572  chip_select_init                       
 00004400  fram_ipe_end                           
 00004400  fram_ipe_start                         
 00004400  fram_rw_start                          
 00004400  fram_rx_start                          
-000104a6  hal_clk_config_ACLK                    
-000102c8  hal_spi_init                           
-000105a4  hal_spi_tx_byte                        
+000104c4  hal_clk_config_ACLK                    
+00010288  hal_spi_init                           
+000105c2  hal_spi_tx_byte                        
 00010000  main                                   
-000103e4  max7219_set_all_digits                 
-0001060a  max7219_set_digit_0                    
-00010614  max7219_set_digit_1                    
-000105b6  max7219_set_digit_2                    
-0001061e  max7219_set_digit_3                    
-000105c2  max7219_set_digit_4                    
-000105ce  max7219_set_digit_5                    
-000105da  max7219_set_digit_6                    
-00010628  max7219_set_digit_7                    
-000105e6  max7219_set_intensity                  
-000105f2  max7219_shutdown                       
-000105fe  max7219_test_display                   
-0001057e  memcpy                                 
+00010412  max7219_erase_all_digits               
+000103a4  max7219_set_all_digits                 
+0001062a  max7219_set_digit_0                    
+00010634  max7219_set_digit_1                    
+000105e2  max7219_set_digit_2                    
+0001063e  max7219_set_digit_3                    
+000105ee  max7219_set_digit_4                    
+000105fa  max7219_set_digit_5                    
+00010606  max7219_set_digit_6                    
+00010648  max7219_set_digit_7                    
+00010612  max7219_set_intensity                  
+000105d4  max7219_shutdown                       
+0001061e  max7219_test_display                   
+0001059c  memcpy                                 
 0000a501  mpu_ctl0_value                         
 00001513  mpu_sam_value                          
 00000440  mpu_segment_border1                    
@@ -3244,37 +3246,38 @@ address   name
 0000fffc  __TI_int54                             
 0000fffe  _reset_vector                          
 00010000  main                                   
-000101bc  _write_char                            
-000102c8  hal_spi_init                           
-0001036e  __TI_decompress_lzss                   
-000103e4  max7219_set_all_digits                 
-00010452  __TI_auto_init_nobinit_nopinit_hold_wdt
-000104a6  hal_clk_config_ACLK                    
-000104e0  __mpu_init                             
-00010532  _write_reg                             
-00010554  chip_select_init                       
-0001056a  chip_select                            
-0001057e  memcpy                                 
-00010592  __TI_decompress_none                   
-000105a4  hal_spi_tx_byte                        
-000105b6  max7219_set_digit_2                    
-000105c2  max7219_set_digit_4                    
-000105ce  max7219_set_digit_5                    
-000105da  max7219_set_digit_6                    
-000105e6  max7219_set_intensity                  
-000105f2  max7219_shutdown                       
-000105fe  max7219_test_display                   
-0001060a  max7219_set_digit_0                    
-00010614  max7219_set_digit_1                    
-0001061e  max7219_set_digit_3                    
-00010628  max7219_set_digit_7                    
-00010632  C$$EXIT                                
-00010632  abort                                  
-00010638  _system_pre_init                       
-0001063c  _system_post_cinit                     
+0001017c  _write_char                            
+00010288  hal_spi_init                           
+0001032e  __TI_decompress_lzss                   
+000103a4  max7219_set_all_digits                 
+00010412  max7219_erase_all_digits               
+00010470  __TI_auto_init_nobinit_nopinit_hold_wdt
+000104c4  hal_clk_config_ACLK                    
+000104fe  __mpu_init                             
+00010550  _write_reg                             
+00010572  chip_select_init                       
+00010588  chip_select                            
+0001059c  memcpy                                 
+000105b0  __TI_decompress_none                   
+000105c2  hal_spi_tx_byte                        
+000105d4  max7219_shutdown                       
+000105e2  max7219_set_digit_2                    
+000105ee  max7219_set_digit_4                    
+000105fa  max7219_set_digit_5                    
+00010606  max7219_set_digit_6                    
+00010612  max7219_set_intensity                  
+0001061e  max7219_test_display                   
+0001062a  max7219_set_digit_0                    
+00010634  max7219_set_digit_1                    
+0001063e  max7219_set_digit_3                    
+00010648  max7219_set_digit_7                    
+00010652  C$$EXIT                                
+00010652  abort                                  
+00010658  _system_pre_init                       
+0001065c  _system_post_cinit                     
 ffffffff  __TI_pprof_out_hndl                    
 ffffffff  __TI_prof_data_size                    
 ffffffff  __TI_prof_data_start                   
 ffffffff  __c_args__                             
 
-[1457 symbols]
+[1458 symbols]

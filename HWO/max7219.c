@@ -36,7 +36,7 @@ void max7219_test_display(max7219_t*    device,
 void max7219_shutdown(max7219_t* device,
                       bool      enable)
 {
-    _write_reg(device, max7219_reg_SHUTDOWN, (enable) ? (0x01) : (0x00));
+    _write_reg(device, max7219_reg_SHUTDOWN, (enable) ? (0x00) : (0x01));
 }
 
 void max7219_set_intensity(max7219_t*    device,
@@ -103,6 +103,18 @@ void max7219_set_all_digits(max7219_t* device,const uint8_t* reg)
     _write_reg(device, max7219_reg_DIGIT_5, reg[5]);
     _write_reg(device, max7219_reg_DIGIT_6, reg[6]);
     _write_reg(device, max7219_reg_DIGIT_7, reg[7]);
+}
+
+void max7219_erase_all_digits(max7219_t* device)
+{
+    _write_reg(device, max7219_reg_DIGIT_0, 0x00);
+    _write_reg(device, max7219_reg_DIGIT_1, 0x00);
+    _write_reg(device, max7219_reg_DIGIT_2, 0x00);
+    _write_reg(device, max7219_reg_DIGIT_3, 0x00);
+    _write_reg(device, max7219_reg_DIGIT_4, 0x00);
+    _write_reg(device, max7219_reg_DIGIT_5, 0x00);
+    _write_reg(device, max7219_reg_DIGIT_6, 0x00);
+    _write_reg(device, max7219_reg_DIGIT_7, 0x00);
 }
 
 

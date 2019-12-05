@@ -82,5 +82,7 @@ void max7219_set_digit_7(max7219_t* device,
 void max7219_set_all_digits(max7219_t*      device,
                             const uint8_t*  reg);
 
+void max7219_erase_all_digits(max7219_t* device);
+
 
 #endif /* HWO_MAX7219_H_ */

@@ -225,21 +225,14 @@ int main(void)
 
 	//_write_reg(0x0F,0xFF);
 
-	_write_reg(max7219_reg_DIGIT_0, 0x00);
-    _write_reg(max7219_reg_DIGIT_1, 0x00);
-    _write_reg(max7219_reg_DIGIT_2, 0x00);
-    _write_reg(max7219_reg_DIGIT_3, 0x00);
-    _write_reg(max7219_reg_DIGIT_4, 0x00);
-    _write_reg(max7219_reg_DIGIT_5, 0x00);
-    _write_reg(max7219_reg_DIGIT_6, 0x00);
-    _write_reg(max7219_reg_DIGIT_7, 0x00);
+	max7219_erase_all_digits(&disp_8x8);
 
     max7219_test_display(&disp_8x8,true);
     max7219_test_display(&disp_8x8,false);
 
     max7219_set_intensity(&disp_8x8,0x00);
 
-    max7219_shutdown(&disp_8x8,true);
+    max7219_shutdown(&disp_8x8,false);
 
     max7219_set_digit_0(&disp_8x8, 0x01);
     max7219_set_digit_1(&disp_8x8, 0x02);
@@ -271,32 +264,6 @@ int main(void)
         _write_char(15);
         for(i = 0; i < 0xFFFF; i++);
     }
-#if 0
-	while(1)
-	{
-	    _write_reg(max7219_reg_DIGIT_0, 0x01);
-	    _write_reg(max7219_reg_DIGIT_1, 0x02);
-	    _write_reg(max7219_reg_DIGIT_2, 0x04);
-	    _write_reg(max7219_reg_DIGIT_3, 0x08);
-	    _write_reg(max7219_reg_DIGIT_4, 0x10);
-	    _write_reg(max7219_reg_DIGIT_5, 0x20);
-	    _write_reg(max7219_reg_DIGIT_6, 0x40);
-	    _write_reg(max7219_reg_DIGIT_7, 0x80);
-	}
-#endif
-
-
-#if 0
-	while(1)
-	{
-	    for(i = 0; i < 0x2FFF; i++);
-	    _write_reg(max7219_reg_DISPLAY_TEST,0x01);
-	    for(i = 0; i < 0x2FFF; i++);
-	    _write_reg(max7219_reg_DISPLAY_TEST, 0x00);
-
-	}
-
-#endif
 
 
 
