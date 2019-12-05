@@ -37,7 +37,19 @@ typedef enum{
     max7219_reg_DISPLAY_TEST = 0x0F
 }max7219_reg_t;
 
+
+typedef enum{
+    max7219_dec_NO_DECODE = 0x00,
+    max7219_dec_CODE_B_DIGIT_0,
+    max7219_dec_CODE_B_DIGIT_0_TO_3 = 0x0F,
+    max7219_dec_CODE_B_ALL_DIGITS = 0xFF,
+
+}max7219_dec_t;
+
 void max7219_init(max7219_t* device);
+
+void max7219_set_decode_mode(max7219_t*     device,
+                             max7219_dec_t  decode_mode);
 
 void max7219_shutdown(max7219_t* device,
                       bool      enable);

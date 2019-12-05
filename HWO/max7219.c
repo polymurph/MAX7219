@@ -26,6 +26,18 @@ void max7219_init(max7219_t* device)
 
 }
 
+void max7219_set_decode_mode(max7219_t*     device,
+                             max7219_dec_t  decode_mode)
+{
+    _write_reg(device,max7219_reg_DECODE_MODE, decode_mode);
+}
+
+void max7219_test_display(max7219_t*    device,
+                          bool          enable)
+{
+    _write_reg(device,max7219_reg_DISPLAY_TEST, (enable) ? (0x01) : (0x00));
+}
+
 void max7219_shutdown(max7219_t* device,
                       bool      enable)
 {

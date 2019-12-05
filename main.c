@@ -234,6 +234,9 @@ int main(void)
     _write_reg(max7219_reg_DIGIT_6, 0x00);
     _write_reg(max7219_reg_DIGIT_7, 0x00);
 
+    max7219_test_display(&disp_8x8,true);
+    max7219_test_display(&disp_8x8,false);
+
     max7219_set_intensity(&disp_8x8,0x00);
 
     max7219_shutdown(&disp_8x8,true);
