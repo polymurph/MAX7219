@@ -8,9 +8,6 @@
 #include <stdbool.h>
 #include "max7219.h"
 
-static fptr_u8_t spi_tx = 0;
-static fptr_b_t chip_sel = 0;
-
 static inline void _write_reg(max7219_t*    device,
                               max7219_reg_t reg,
                               uint8_t       data)
