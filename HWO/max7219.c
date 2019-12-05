@@ -101,16 +101,16 @@ void max7219_set_digit_7(max7219_t* device,
     _write_reg(device, max7219_reg_DIGIT_7, data);
 }
 
-void max7219_set_all_digits(max7219_t* device,const uint8_t* reg)
+void max7219_set_all_digits(max7219_t* device,const uint8_t* data)
 {
-    _write_reg(device, max7219_reg_DIGIT_0, reg[0]);
-    _write_reg(device, max7219_reg_DIGIT_1, reg[1]);
-    _write_reg(device, max7219_reg_DIGIT_2, reg[2]);
-    _write_reg(device, max7219_reg_DIGIT_3, reg[3]);
-    _write_reg(device, max7219_reg_DIGIT_4, reg[4]);
-    _write_reg(device, max7219_reg_DIGIT_5, reg[5]);
-    _write_reg(device, max7219_reg_DIGIT_6, reg[6]);
-    _write_reg(device, max7219_reg_DIGIT_7, reg[7]);
+    _write_reg(device, max7219_reg_DIGIT_0, data[0]);
+    _write_reg(device, max7219_reg_DIGIT_1, data[1]);
+    _write_reg(device, max7219_reg_DIGIT_2, data[2]);
+    _write_reg(device, max7219_reg_DIGIT_3, data[3]);
+    _write_reg(device, max7219_reg_DIGIT_4, data[4]);
+    _write_reg(device, max7219_reg_DIGIT_5, data[5]);
+    _write_reg(device, max7219_reg_DIGIT_6, data[6]);
+    _write_reg(device, max7219_reg_DIGIT_7, data[7]);
 }
 
 void max7219_erase_all_digits(max7219_t* device)
