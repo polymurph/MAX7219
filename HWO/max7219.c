@@ -2,7 +2,7 @@
  * max7219.c
  *
  *  Created on: 25.11.2019
- *      Author: timon
+ *      Author: Edwin Koch
  */
 #include <stdint.h>
 #include <stdbool.h>

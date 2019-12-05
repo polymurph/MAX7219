@@ -2,7 +2,7 @@
  * max7219.h
  *
  *  Created on: 25.11.2019
- *      Author: timon
+ *      Author: Edwin Koch
  */
 
 #ifndef HWO_MAX7219_H_

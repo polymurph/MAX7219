@@ -255,14 +255,19 @@ int main(void)
 
     while(1)
     {
+        max7219_set_intensity(&disp_8x8,0x00);
         _write_char(21);
         for(i = 0; i < 0xFFFF; i++);
+        max7219_set_intensity(&disp_8x8,0x04);
         _write_char(10);
         for(i = 0; i < 0xFFFF; i++);
+        max7219_set_intensity(&disp_8x8,0x08);
         _write_char(14);
         for(i = 0; i < 0xFFFF; i++);
+        max7219_set_intensity(&disp_8x8,0x0A);
         _write_char(16);
         for(i = 0; i < 0xFFFF; i++);
+        max7219_set_intensity(&disp_8x8,0x0F);
         _write_char(15);
         for(i = 0; i < 0xFFFF; i++);
     }
