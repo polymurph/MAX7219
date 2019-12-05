@@ -7,11 +7,17 @@
 
 #ifndef HWO_MAX7219_H_
 #define HWO_MAX7219_H_
+#include <stdint.h>
 
 #define MAX7219_REG_NO_OP 0x00
-#define MAX7219_REG_
-#define MAX7219_REG_
-#define MAX7219_REG_
+
+typedef void (*fptr_u8_t)(uint8_t);
+typedef void (*fptr_b_t)(bool);
+
+typedef struct{
+    fptr_u8_t spi_tx;
+    fptr_b_t chipselect;
+}max7219_t;
 
 
 typedef enum{
@@ -31,6 +37,37 @@ typedef enum{
     max7219_reg_DISPLAY_TEST = 0x0F
 }max7219_reg_t;
 
+void max7219_init(max7219_t* device);
+
+void max7219_shutdown(max7219_t* device,
+                      bool      enable);
+
+void max7219_set_intensity(max7219_t*   device,
+                           uint8_t      intensity);
+
+void max7219_set_digit_0(max7219_t* device,
+                         uint8_t    data);
+
+void max7219_set_digit_1(max7219_t* device,
+                         uint8_t    data);
+
+void max7219_set_digit_2(max7219_t* device,
+                         uint8_t    data);
+
+void max7219_set_digit_3(max7219_t* device,
+                         uint8_t    data);
+
+void max7219_set_digit_4(max7219_t* device,
+                         uint8_t    data);
+
+void max7219_set_digit_5(max7219_t* device,
+                         uint8_t    data);
+
+void max7219_set_digit_6(max7219_t* device,
+                         uint8_t    data);
+
+void max7219_set_digit_7(max7219_t* device,
+                         uint8_t    data);
 
 
 #endif /* HWO_MAX7219_H_ */

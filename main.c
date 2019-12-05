@@ -197,8 +197,13 @@ void _write_char(uint8_t character)
 int main(void)
 {
     uint16_t i = 0;
+    max7219_t disp_8x8;
+
 	WDTCTL = WDTPW | WDTHOLD;	// stop watchdog timer
 	
+
+	disp_8x8.chipselect = chip_select;
+	disp_8x8.spi_tx = hal_spi_tx_byte;
 
 	// read on rising clk edge
 	// CS low to set data
@@ -206,9 +211,12 @@ int main(void)
 	//
 	chip_select_init();
 
-	hal_clk_config_ACLK(clk_ACLK_src_LFXT, 0, true);
+	hal_clk_config_ACLK(clk_ACLK_src_VLO, 0, true);
 
 	hal_spi_init(spi_mode_MASTER, spi_clk_source_ACLK, spi_clk_mode_2, 0,true);
+
+
+
 
 	_write_reg(0x0C, 0x01); // normal operation
 	_write_reg(0x09, 0x00); // no decode
@@ -225,6 +233,20 @@ int main(void)
     _write_reg(max7219_reg_DIGIT_5, 0x00);
     _write_reg(max7219_reg_DIGIT_6, 0x00);
     _write_reg(max7219_reg_DIGIT_7, 0x00);
+
+    max7219_set_intensity(&disp_8x8,0x00);
+
+    max7219_shutdown(&disp_8x8,true);
+
+    max7219_set_digit_0(&disp_8x8, 0x01);
+    max7219_set_digit_1(&disp_8x8, 0x02);
+    max7219_set_digit_2(&disp_8x8, 0x04);
+    max7219_set_digit_3(&disp_8x8, 0x08);
+
+    max7219_set_digit_4(&disp_8x8, 0x01);
+    max7219_set_digit_5(&disp_8x8, 0x02);
+    max7219_set_digit_6(&disp_8x8, 0x04);
+    max7219_set_digit_7(&disp_8x8, 0x08);
 
     while(1)
     {
