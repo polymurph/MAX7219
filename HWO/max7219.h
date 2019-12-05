@@ -46,8 +46,6 @@ typedef enum{
 
 }max7219_dec_t;
 
-void max7219_init(max7219_t* device);
-
 void max7219_set_decode_mode(max7219_t*     device,
                              max7219_dec_t  decode_mode);
 
@@ -80,6 +78,9 @@ void max7219_set_digit_6(max7219_t* device,
 
 void max7219_set_digit_7(max7219_t* device,
                          uint8_t    data);
+
+void max7219_set_all_digits(max7219_t*      device,
+                            const uint8_t*  reg);
 
 
 #endif /* HWO_MAX7219_H_ */

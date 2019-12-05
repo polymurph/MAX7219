@@ -21,11 +21,6 @@ static inline void _write_reg(max7219_t*    device,
     device->chipselect(false);
 }
 
-void max7219_init(max7219_t* device)
-{
-
-}
-
 void max7219_set_decode_mode(max7219_t*     device,
                              max7219_dec_t  decode_mode)
 {
@@ -96,6 +91,18 @@ void max7219_set_digit_7(max7219_t* device,
                          uint8_t    data)
 {
     _write_reg(device, max7219_reg_DIGIT_7, data);
+}
+
+void max7219_set_all_digits(max7219_t* device,const uint8_t* reg)
+{
+    _write_reg(device, max7219_reg_DIGIT_0, reg[0]);
+    _write_reg(device, max7219_reg_DIGIT_1, reg[1]);
+    _write_reg(device, max7219_reg_DIGIT_2, reg[2]);
+    _write_reg(device, max7219_reg_DIGIT_3, reg[3]);
+    _write_reg(device, max7219_reg_DIGIT_4, reg[4]);
+    _write_reg(device, max7219_reg_DIGIT_5, reg[5]);
+    _write_reg(device, max7219_reg_DIGIT_6, reg[6]);
+    _write_reg(device, max7219_reg_DIGIT_7, reg[7]);
 }
 
 

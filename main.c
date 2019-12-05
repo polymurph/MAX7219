@@ -251,6 +251,8 @@ int main(void)
     max7219_set_digit_6(&disp_8x8, 0x04);
     max7219_set_digit_7(&disp_8x8, 0x08);
 
+    max7219_set_all_digits(&disp_8x8, character_lut[5]);
+
     while(1)
     {
         _write_char(21);
