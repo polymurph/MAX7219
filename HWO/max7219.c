@@ -45,6 +45,14 @@ void max7219_set_intensity(max7219_t*    device,
     _write_reg(device, max7219_reg_INTENSITY, intensity);
 }
 
+void max7219_set_digit(max7219_t*   device,
+                       uint8_t      digit,
+                       uint8_t      data)
+{
+    digit &= 0x03;
+    _write_reg(device, (max7219_reg_DIGIT_0 + digit), data);
+}
+
 void max7219_set_digit_0(max7219_t* device,
                          uint8_t    data)
 {

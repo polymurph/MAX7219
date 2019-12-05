@@ -216,10 +216,7 @@ int main(void)
 	hal_spi_init(spi_mode_MASTER, spi_clk_source_ACLK, spi_clk_mode_2, 0,true);
 
 
-
-
-	_write_reg(0x0C, 0x01); // normal operation
-	_write_reg(0x09, 0x00); // no decode
+	max7219_set_decode_mode(&disp_8x8, max7219_dec_NO_DECODE);
 
 	//_write_reg(max7219_reg_DISPLAY_TEST, 0x00);
 
@@ -245,6 +242,9 @@ int main(void)
     max7219_set_digit_7(&disp_8x8, 0x08);
 
     max7219_set_all_digits(&disp_8x8, character_lut[5]);
+
+    max7219_erase_all_digits(&disp_8x8);
+    max7219_set_digit(&disp_8x8, 0, 0xFF);
 
     while(1)
     {

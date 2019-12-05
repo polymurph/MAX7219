@@ -55,6 +55,10 @@ void max7219_shutdown(max7219_t* device,
 void max7219_set_intensity(max7219_t*   device,
                            uint8_t      intensity);
 
+void max7219_set_digit(max7219_t*   device,
+                       uint8_t      digit,
+                       uint8_t      data);
+
 void max7219_set_digit_0(max7219_t* device,
                          uint8_t    data);
 
